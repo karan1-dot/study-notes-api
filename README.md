@@ -64,7 +64,7 @@ curl "http://127.0.0.1:8000/search?q=normalization"
 curl -X DELETE http://127.0.0.1:8000/notes/1
 ```
 
-## How the search works (for interview explanation)
+## Search Architecture (TF-IDF Implementation)
 
 Instead of a plain `LIKE '%keyword%'` SQL match, this uses **TF-IDF**
 (Term Frequency–Inverse Document Frequency), implemented from scratch in
@@ -87,11 +87,9 @@ This means a search for "gradient descent" ranks a note that's genuinely
 about gradient descent above one that just mentions it once in passing —
 which a simple keyword match cannot do.
 
-Building this by hand (rather than calling `scikit-learn`) means you can
-explain every line of the math in an interview, not just "I called a
-library function."
+To demonstrate a strong understanding of underlying vector mathematics and search algorithms, this project implements TF-IDF entirely from scratch using the Python standard library, rather than relying on heavy external frameworks like scikit-learn.
 
-## Possible extensions (if you have more time)
+## Future Roadmap
 - Deploy on AWS EC2 free tier and store note attachments in S3
 - Add tag-based filtering alongside search
 - Add a simple text classifier (e.g., auto-tag notes as "DBMS"/"Networks"/"ML"
